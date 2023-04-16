@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to IT System</title>
-</head>
-<body>
 <?php
-    // session_start();
+    session_start();
     
-    // if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    //     header("location: problem.php");
-    //     exit;
-    // }
+    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+        header("location: problem.php");
+        exit;
+    }
     $formComplete = true;
     $errorMsg=[];
     if(isset($_POST["submit"]) && $_POST["submit"] === "submit"){
@@ -42,10 +33,19 @@
             $_SESSION["loggedin"] = true;
             $_SESSION['name'] = $fname;
             $_SESSION['role'] = $role;
-            header("location:problem.php");
+            header("location:problem.php"); 
         }
     }
     ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to IT System</title>
+</head>
+<body>
     <div class="container">
         <div class="container-form">
             <h1>Welcome To Your IT Support System</h1>
